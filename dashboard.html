@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Content metadata -->
+  <title>Dashboard | Estudiar</title>
+  <meta name="description" content="Your weekly study summary on Estudiar: hours studied, active days, study groups and who is studying now.">
+  <meta name="author" content="Hisham">
+  <meta name="keywords" content="study dashboard, study hours, study groups, Estudiar">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Estudiar styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app" data-page="dashboard">
+
+  <!-- Navbar is injected here by js/layout.js -->
+  <div id="app-navbar"></div>
+
+  <main class="container pb-4">
+
+    <!-- ===== Page heading ===== -->
+    <header class="page-head">
+      <h1 id="welcome">Welcome back</h1>
+      <p>Here's your study week at a glance.</p>
+    </header>
+
+    <!-- ===== Summary numbers ===== -->
+    <section aria-label="Weekly summary" class="mb-4">
+      <div class="row g-3">
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="label">Hours this week</div>
+            <div class="value" id="stat-hours">-</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="label">Sessions logged</div>
+            <div class="value" id="stat-sessions">-</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="label">Active days</div>
+            <div class="value" id="stat-days">-</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="label">Study groups joined</div>
+            <div class="value" id="stat-groups">-</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="row g-3">
+
+      <!-- ===== Chart ===== -->
+      <section class="col-lg-8" aria-labelledby="chart-title">
+        <div class="panel">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <h2 id="chart-title" class="mb-0">Study time</h2>
+            <div class="chart-toggle" role="group" aria-label="Chart view">
+              <button type="button" id="view-day" aria-pressed="true">By day</button>
+              <button type="button" id="view-subject" aria-pressed="false">By subject</button>
+            </div>
+          </div>
+          <div class="chart-box">
+            <canvas id="study-chart" role="img" aria-label="Chart of hours studied this week, split by subject"></canvas>
+          </div>
+          <p class="insight" id="insight"></p>
+        </div>
+      </section>
+
+      <!-- ===== Side column ===== -->
+      <div class="col-lg-4">
+        <div class="d-flex flex-column gap-3 h-100">
+
+          <section aria-labelledby="goal-title">
+            <div class="panel">
+              <h2 id="goal-title">Weekly goal</h2>
+              <div class="goal-bar" role="progressbar" aria-label="Weekly study goal"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div id="goal-fill" style="width: 0%"></div>
+              </div>
+              <p class="insight" id="goal-text"></p>
+            </div>
+          </section>
+
+          <section aria-labelledby="now-title">
+            <div class="panel">
+              <h2 id="now-title">Studying now</h2>
+              <ul class="plain-list" id="now-list"></ul>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <!-- ===== Upcoming sessions ===== -->
+      <section class="col-12" aria-labelledby="upcoming-title">
+        <div class="panel">
+          <h2 id="upcoming-title">Upcoming group sessions</h2>
+          <ul class="plain-list" id="upcoming-list"></ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer is injected here by js/layout.js -->
+  <div id="app-footer"></div>
+
+  <!-- Scripts: order matters (auth.js before layout.js, data.js before dashboard.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
