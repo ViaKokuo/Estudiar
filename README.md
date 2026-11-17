@@ -4,7 +4,7 @@
 
 This is an individual project for **IMS566 Advanced Web Design Development and Content Management**. It is a front-end prototype: there is no backend or database, and all sample data is hardcoded.
 
-- **Live website:** https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/
+- **Live website:**  https://viakokuo.github.io/Estudiar/
 - **Repository:** https://github.com/YOUR-USERNAME/YOUR-REPO-NAME
 
 ## Features
